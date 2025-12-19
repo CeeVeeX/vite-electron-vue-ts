@@ -1,0 +1,51 @@
+// @see https://www.electron.build/configuration/configuration
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.vite-electron-vue-ts",
+  "asar": true,
+  "productName": "vite-electron-vue-ts",
+  "directories": {
+    "output": "release/${version}"
+  },
+  // 打包的文件 到 app.asar
+  "files": [
+    "dist",
+    "dist-electron",
+  ],
+  // 复制到 软件目录
+  "extraFiles": [],
+  "mac": {
+    "target": [
+      "dmg"
+    ],
+    "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
+  },
+  "win": {
+    "icon": "public/icon/icon.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "language": 2052,
+    "allowToChangeInstallationDirectory": false,
+    "deleteAppDataOnUninstall": false,
+    "allowElevation": true
+  },
+  "linux": {
+    "target": [
+      "AppImage"
+    ],
+    "artifactName": "${productName}-Linux-${version}.${ext}"
+  },
+  "publish": [],
+  "afterPack": 'build/hooks/afterPack.js',
+}
