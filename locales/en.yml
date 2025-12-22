@@ -1,44 +1,14 @@
-copyright: Copyright 2025 Chengzhi Technology. All Rights Reserved.
-login:
-  title: Login
-  submit: Log In
-  username: Username
-  password: Password
-  success: Login Successful
-  failed: Login Failed
-  error: Please enter your username and password
-  login-offline: Offline Login
-  login-other: Or log in with another method
-  not-have-account: Don't have an account yet?
-  create-account: Create an account
-  chenz-login: Chengzhi Service Login
-  alipay-login: Alipay Login
-  wechat-login: WeChat Login
-  privacy-policy: Privacy Policy
-  terms-of-service: Terms of Service
-  forgot-password: Forgot password?
-apps:
-  start: Start
-  update: Update
-  settings: Settings
-  new: New Version
-settings:
-  title: Settings
-  account:
-    title: Account Information
-    safety: Security Settings
-    change-password: Change Password
-  company:
-    title: Company Information
-  general:
-    title: General Settings
-    version: 'Version: {version}'
-    update: Update Launcher
-    check-update: Check for Updates
-  about:
-    title: About Chengzhi
-language: Language
-logout: Log Out
-not-found: Page Not Found {page}
-not-found-desc: The page you are looking for does not exist
-back-home: Return to Homepage
+button:
+  about: About
+  back: Back
+  go: GO
+  home: Home
+  toggle_dark: Toggle dark mode
+  toggle_langs: Change languages
+intro:
+  desc: Opinionated Vite Starter Template
+  dynamic-route: Demo of dynamic route
+  hi: Hi, {name}!
+  aka: Also known as
+  whats-your-name: What's your name?
+not-found: Not found

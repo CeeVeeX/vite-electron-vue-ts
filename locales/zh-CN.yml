@@ -1,57 +1,14 @@
-copyright: 2025 成智科技 版权所有
-login:
-  title: 登录
-  submit: 登录
-  username: 用户名
-  password: 密码
-  success: 登录成功
-  failed: 登录失败
-  error: 请填写用户名和密码
-  login-offline: 离线登录
-  login-other: 或其他方式登录
-  not-have-account: 还没有账号?
-  create-account: 创建账号
-  chenz-login: 成智服务登录
-  alipay-login: 支付宝登录
-  wechat-login: 微信登录
-  privacy-policy: 隐私政策
-  terms-of-service: 服务条款
-  forgot-password: 忘记密码?
-apps:
-  start: 启动
-  update: 更新
-  download: 下载
-  settings: 设置
-  new: 有新版本
-settings:
-  title: 设置
-  account:
-    title: 账户信息
-    safety: 安全设置
-    license-key: 授权码
-    license-key-error: '请输入正确的授权码 (格式: xxxx-xxxx-xxxx-xxxx-xxxx)'
-    change-password: 修改密码
-  company:
-    title: 企业信息
-  general:
-    title: 常规设置
-    version: '版本: {version}'
-    update: 更新启动器
-    check-update: 检查更新
-    app-install-path: 成智应用安装路径 (谨慎修改)
-    app-install-cache-path: 成智应用缓存路径 (谨慎修改)
-  about:
-    title: 关于成智
-component:
-  browse: 浏览
-title: 成智工业平台
-description: 提供高效,数据采集,分析,监控,控制等一体化工业智能制造解决方案
-loading0: 加载中
-loading1: 正在初始化
-loading2: 正在载入应用
-loading3: 正在载入数据
-language: 语言
-logout: 退出登录
-not-found: 未找到页面 {page}
-not-found-desc: 你访问的页面不存在
-back-home: < 返回首页
+button:
+  about: 关于
+  back: 返回
+  go: 确定
+  home: 首页
+  toggle_dark: 切换深色模式
+  toggle_langs: 切换语言
+intro:
+  desc: 固执己见的 Vite 项目模板
+  dynamic-route: 动态路由演示
+  hi: 你好，{name}
+  aka: 也叫
+  whats-your-name: 输入你的名字
+not-found: 未找到页面

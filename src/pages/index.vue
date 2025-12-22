@@ -1,9 +1,7 @@
 <script setup lang="ts" generic="T extends any, O extends any">
-defineOptions({
-  name: 'IndexPage',
-})
-
 const name = ref('')
+
+const { t } = useI18n()
 
 const router = useRouter()
 function go() {
@@ -21,14 +19,14 @@ function go() {
       </a>
     </p>
     <p>
-      <em text-sm op75>Opinionated Vite Starter Template</em>
+      <em text-sm op75>{{ t('intro.desc') }}</em>
     </p>
 
     <div py-4 />
 
     <TheInput
       v-model="name"
-      placeholder="What's your name?"
+      :placeholder="t('intro.whats-your-name')"
       autocomplete="false"
       @keydown.enter="go"
     />
@@ -39,7 +37,7 @@ function go() {
         :disabled="!name"
         @click="go"
       >
-        Go
+        {{ t('button.go') }}
       </button>
     </div>
   </div>
