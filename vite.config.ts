@@ -19,7 +19,6 @@ export default defineConfig(async ({ command }) => {
   const isServe = command === 'serve'
   const isBuild = command === 'build'
 
-  // eslint-disable-next-line node/prefer-global/process
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
 
   return {
@@ -62,14 +61,12 @@ export default defineConfig(async ({ command }) => {
         dts: true,
         dirs: [
           './src/composables',
-          './src/ipc',
         ],
         vueTemplate: true,
       }),
 
       // https://github.com/antfu/vite-plugin-components
       Components({
-        resolvers: [],
         dts: true,
       }),
 
@@ -84,12 +81,12 @@ export default defineConfig(async ({ command }) => {
         fullInstall: true,
         include: [path.resolve(__dirname, 'locales/**')],
       }),
+
       electron({
         main: {
           // Shortcut of `build.lib.entry`
           entry: 'electron/main/index.ts',
           onstart({ startup }) {
-            // eslint-disable-next-line node/prefer-global/process
             if (process.env.VSCODE_DEBUG) {
               console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')
             }
@@ -98,48 +95,23 @@ export default defineConfig(async ({ command }) => {
             }
           },
           vite: {
-            resolve: {
-              alias: {
-                'el/': `${path.resolve(__dirname, 'electron/main')}/`,
-              },
-            },
             build: {
               sourcemap,
               minify: isBuild,
               outDir: 'dist-electron/main',
               target: 'node20',
               rollupOptions: {
-                output: {
-                  manualChunks(id: string) {
-                    if (id.includes('node_modules')) {
-                      return 'vendor' // 打包到vendor-hash.js，vendor-hash.css
-                    }
-
-                    // if (id.includes('common/')) {
-                    //   return 'common'
-                    // }
-
-                    // services 目录所有文件打包到 services-[name]-hash.js
-                    if (id.includes('services/')) {
-                      // return `services-${id.split('services/')[1].split('.')[0]}`
-                      return 'services'
-                    }
-                  },
-                },
-                // 一些第三方的 Node.js 库，特别是 `C/C++` 插件，可能无法被 Vite 正确构建，
-                // 我们可以使用 `external` 来排除它们，以确保它们能正常工作。
-                // 其他库需要将它们放在 `dependencies` 中，以确保它们在应用构建后被打包到 `app.asar` 中。
-                // 当然，这并不是绝对的，这种方式只是相对简单的一种方法。 :)
+                // Some third-party Node.js libraries, especially `C/C++` plugins, may not be built correctly by Vite,
+                // We can use `external` to exclude them to ensure they work properly.
+                // Other libraries need to be placed in `dependencies` to ensure they are packaged into `app.asar` after the application is built.
+                // Of course, this is not absolute, and this method is just a relatively simple one. :)
                 external: [],
               },
             },
           },
         },
         preload: {
-          // 快捷方式 build.rollupOptions.input。
-          // 预加载脚本可能包含Web资产，因此请使用 build.rollupOptions.input 反而 build.lib.entry。
           input: [
-            'electron/preload/ipc.ts',
             'electron/preload/index.ts',
           ],
           vite: {
@@ -149,7 +121,7 @@ export default defineConfig(async ({ command }) => {
               outDir: 'dist-electron/preload',
               rollupOptions: {
                 output: {
-                  // 选项“output.inlineDynamicImports”的值无效 - 当“output.inlineDynamicImports”为真时，不支持多个输入。
+                  // The value of the "output.inlineDynamicImports" option is invalid - when "output.inlineDynamicImports" is true, multiple inputs are not supported.
                   inlineDynamicImports: false,
                 },
                 external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
@@ -170,7 +142,7 @@ export default defineConfig(async ({ command }) => {
     build: {
       rollupOptions: {
         input: {
-          // 配置所有页面路径，使得所有页面都会被打包
+          // Configure all page paths so that all pages are packaged
           main: resolve(__dirname, 'index.html'),
         },
       },

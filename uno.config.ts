@@ -2,22 +2,28 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
-  presetUno,
+  presetWebFonts,
+  presetWind4,
 } from 'unocss'
 
 export default defineConfig({
   shortcuts: [
-    ['bg-emp', 'bg-hex-181d22'],
-    ['bg-emp-2', 'bg-hex-ffffff30'],
-    ['dock-item', 'pos-relative box-border inline-block h-164px w-164px flex flex-col cursor-pointer items-center text-gray-4 '],
-    ['dock-item-icon', 'pos-relative box-border h-150px w-150px flex items-center justify-center overflow-hidden rounded-10px p-1  shadow-xl'],
+    ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
+    ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
   ],
   presets: [
-    presetUno(),
+    presetWind4(),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
       warn: true,
+    }),
+    presetWebFonts({
+      fonts: {
+        sans: 'DM Sans',
+        serif: 'DM Serif Display',
+        mono: 'DM Mono',
+      },
     }),
   ],
   rules: [
@@ -29,11 +35,5 @@ export default defineConfig({
       '-webkit-app-region': 'no-drag',
     }],
   ],
-  safelist: [
-    'i-ix:plc-device',
-    'i-ix:network-device',
-    'i-ix:controller-device',
-    'i-ix:thermometer',
-    'i-ix:surveillance',
-  ],
+  safelist: [],
 })

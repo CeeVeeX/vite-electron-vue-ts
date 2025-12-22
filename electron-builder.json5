@@ -7,12 +7,12 @@
   "directories": {
     "output": "release/${version}"
   },
-  // 打包的文件 到 app.asar
+  // Copy files to app.asar
   "files": [
     "dist",
-    "dist-electron",
+    "dist-electron"
   ],
-  // 复制到 软件目录
+  // Copy to software directory
   "extraFiles": [],
   "mac": {
     "target": [
@@ -47,5 +47,5 @@
     "artifactName": "${productName}-Linux-${version}.${ext}"
   },
   "publish": [],
-  "afterPack": 'build/hooks/afterPack.js',
+  "afterPack": "build/hooks/afterPack.js"
 }

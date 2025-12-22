@@ -2,6 +2,7 @@
   "name": "vite-electron-vue-ts",
   "type": "module",
   "version": "0.0.0",
+  "private": true,
   "description": "_description_",
   "author": "Cee Vee X <ceeveex@hotmail.com>",
   "license": "MIT",
@@ -35,6 +36,7 @@
     "@antfu/ni": "catalog:cli",
     "@antfu/utils": "catalog:inlined",
     "@electron/rebuild": "catalog:electron",
+    "@iconify-json/carbon": "catalog:cli",
     "@intlify/unplugin-vue-i18n": "catalog:unplugin",
     "@types/node": "catalog:types",
     "@unocss/eslint-config": "catalog:unocss",
@@ -73,5 +75,10 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344"
+    }
   }
 }

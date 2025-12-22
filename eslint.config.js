@@ -3,7 +3,10 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
-    type: 'lib',
     pnpm: true,
+    rules: {
+      'node/prefer-global/process': 'off',
+      'pnpm/yaml-enforce-settings': 'off',
+    },
   },
 )

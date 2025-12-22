@@ -37,6 +37,8 @@
     "src/**/*.vue"
   ],
   "exclude": [
-    "**/*.js"
+    "dist",
+    "node_modules",
+    "eslint.config.js"
   ]
 }
