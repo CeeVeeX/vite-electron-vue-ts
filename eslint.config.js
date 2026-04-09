@@ -7,6 +7,7 @@ export default antfu(
     rules: {
       'node/prefer-global/process': 'off',
       'pnpm/yaml-enforce-settings': 'off',
+      'pnpm/json-enforce-catalog': 'off',
     },
   },
 )

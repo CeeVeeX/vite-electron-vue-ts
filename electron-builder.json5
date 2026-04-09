@@ -46,6 +46,5 @@
     ],
     "artifactName": "${productName}-Linux-${version}.${ext}"
   },
-  "publish": [],
-  "afterPack": "build/hooks/afterPack.js"
+  "publish": []
 }

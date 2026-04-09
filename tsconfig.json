@@ -4,11 +4,10 @@
     "jsx": "preserve",
     "lib": ["ESNext", "DOM"],
     "useDefineForClassFields": true,
-    "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "types": [
@@ -17,8 +16,6 @@
       "unplugin-vue-router/client"
     ],
     "allowImportingTsExtensions": true,
-
-    /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -29,16 +26,16 @@
   },
   "references": [{ "path": "./tsconfig.node.json" }],
   "include": [
-    "auto-imports.d.ts",
-    "components.d.ts",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    "./auto-imports.d.ts",
+    "./components.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.d.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue"
   ],
   "exclude": [
-    "dist",
-    "node_modules",
-    "eslint.config.js"
+    "./dist",
+    "./node_modules",
+    "./eslint.config.js"
   ]
 }

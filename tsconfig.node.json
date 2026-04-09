@@ -2,11 +2,10 @@
   "compilerOptions": {
     "composite": true,
     "experimentalDecorators": true,
-    "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "paths": {
-      "el/*": ["electron/main/*"]
+      "el/*": ["./electron/main/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
